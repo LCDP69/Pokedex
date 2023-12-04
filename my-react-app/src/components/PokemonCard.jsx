@@ -1,31 +1,20 @@
 import React from 'react';
 
+const PokemonCard = (props) => {
+    console.log(props.pokemon);
 
-const PokemonCard = () => {
+    const { name, imgSrc } = props.pokemon;
+
     return (
         <figure>
-            {pokemonList.map((pokemon) => (
-                <>
-                    {pokemon.imgSrc ? (<> <img src={pokemon.imgSrc} alt={pokemon.name} />
-                        <figcaption>{pokemon.name}</figcaption></>) : <figcaption><p>???</p></figcaption>}
-                </>
-            ))}
-
+            {imgSrc ? (
+                <img src={imgSrc} alt={name} />) : (
+                <p>???</p>
+            )}
+            <figcaption>{name}</figcaption>
         </figure>
     );
 
 };
-
-
-const pokemonList = [
-    {
-        name: "bulbasaur",
-        imgSrc:
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    },
-    {
-        name: "mew",
-    },
-];
 
 export default PokemonCard;
